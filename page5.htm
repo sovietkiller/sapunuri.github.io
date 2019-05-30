@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="test.css">
+<script>
+var pos = 0, test, test_status, question, choice, choices, chA, chB, chC, correct = 0;
+var questions = [
+    [ "Ce este săpunul?", 
+        "Un fel de mâncare", 
+        "Amestecul de săruri de sodiu", 
+        "Amestecul de baze de sodiu",  
+        "B" 
+    ],
+    [ "Câte părți prezintă anionul carboxilat?", 
+        "1", 
+        "2", 
+        "3",  
+        "B" 
+    ],
+    [ "Care sunt acestea?", 
+        "Radical hidrocarbonat, grupa carboxilat", 
+        "Radical hidroxil, gruparea alcool", 
+        "Radical metil, gruparea alcool",  
+        "A" 
+    ],
+    [ "Ce grăsimi sunt folosite pentru fabricarea săpunului?", 
+        "Animale", 
+        "Animale și vegetale", 
+        "Vegetale",  
+        "B" 
+    ],
+    [ "Ca rezultat al reacției săpunului de sodiu cu apa bogată în ioni de calciu și magneziu, ce precipită?", 
+        "Săpunuri de calciu și magneziu", 
+        "Apă și hidroxid de sodiu", 
+        "Hidroxid de calciu și hidroxid de magneziu",  
+        "A" 
+    ],
+    [ "Ce sunt detergenții?", 
+        "Hidrocarburi", 
+        "Produși organici de sinteză", 
+        "Acizi carboxilici",  
+        "B" 
+    ],
+    [ "Câte categorii de detergenți sunt?", 
+        "1", 
+        "3", 
+        "2",  
+        "B" 
+    ],
+    [ "Pentru rufe albe din bumbac cu pete de grăsime sau proteine, ce program de spălare se folosește?", 
+        "Lung", 
+        "Scurt", 
+        "Mediu",  
+        "A" 
+    ],
+    [ "În ce alte domenii se folosesc detergenții?", 
+        "Matematică, informatică", 
+        "Arhitectură, agricultură", 
+        "Pentru vase, geamuri",  
+        "C" 
+    ],
+	[ "Ce caracteristică are săpunul de sodiu?", 
+        "Este biodegradabil", 
+        "Nu este biodegradabil", 
+        "Este sărat", 
+        "A" 
+    ]
+];
+function _(x){
+	return document.getElementById(x);
+}
+function renderQuestion(){
+	test = _("test");
+	if(pos >= questions.length){
+		test.innerHTML = "<h2>Felicitări! Ai răspuns corect la "+correct+" din "+questions.length+" întrebări!</h2>";
+		_("test_status").innerHTML = "Test terminat";
+		pos = 0;
+		correct = 0;
+		return false;
+	}
+	_("test_status").innerHTML = "Întrebarea "+(pos+1)+" din "+questions.length;
+	question = questions[pos][0];
+	chA = questions[pos][1];
+	chB = questions[pos][2];
+	chC = questions[pos][3];
+	test.innerHTML = "<h3>"+question+"</h3>";
+	test.innerHTML += "<input type='radio' name='choices' value='A'> "+chA+"<br>";
+	test.innerHTML += "<input type='radio' name='choices' value='B'> "+chB+"<br>";
+	test.innerHTML += "<input type='radio' name='choices' value='C'> "+chC+"<br><br>";
+	test.innerHTML += "<button     onclick='checkAnswer()'>Trimite răspuns</button>";
+}
+function checkAnswer(){
+	choices = document.getElementsByName("choices");
+	for(var i=0; i<choices.length; i++){
+		if(choices[i].checked){
+			choice = choices[i].value;
+		}
+	}
+	if(choice == questions[pos][4]){
+		correct++;
+	}
+	pos++;
+	renderQuestion();
+}
+window.addEventListener("load", renderQuestion, false);
+</script>
+</head>
+<body>
+    <div class="topnav">
+            <div class="meniu-stanga"><a href="proiect.htm">Acasa</a>
+                <a href="page2.htm">Ce sunt săpunurile?</a></div>
+            <div class="meniu-centru"><a class="active" href="page3.htm">Test</a></div>
+            <div class="meniu-dreapta"><a href="page4.htm">Utilizări</a>
+                <a href="page5.htm">Ce sunt detergenții?</a></div>
+		</div>
+<center><h2 id="test_status"></h2>
+<div id="test"></div>
+    </center>
+</body>
+</html>

@@ -1,0 +1,72 @@
+body{
+    background-color: palevioletred;
+    background-image: url(https://img.9am.ro/images/slideshows/slide_308472_65292.jpg);
+    background-position: center;
+    background-size: cover;
+    background-blend-mode: soft-light;
+    font-family: sans-serif;
+}
+.topnav {
+	background-color: #333;
+    position:fixed;
+    top:0px;
+    width:100%;
+	overflow: hidden;
+}
+.topnav a {
+	text-align:center;
+	float: left;
+	color=#f2f2f2;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+	font-size: 19px;
+}
+.topnav a:hover {
+	background-color: #ddd;
+	color: black:
+}
+.topnav a.active {
+	background-color: #4CAF50;
+	color: white;
+}
+.meniu-centru{
+    float:none;
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+}
+.meniu-stanga{
+    float: left;
+}
+.meniu-dreapta{
+    float: right;
+}
+a:link{
+	color:white;
+}
+a:visited{
+	color:white;
+}
+a:hover{
+	color:white;
+}
+a:active{
+	color:white;
+}
+div#test{
+    zoom: 200%;
+    border: #000 2px solid;
+    padding: 10px 40px 40px 40px;
+}
+.button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
